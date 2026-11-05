@@ -84,4 +84,38 @@ function createPlayer(name, mark) {
   return { getName, setName, getMark, getScore, addWin, resetScore };
 }
 
+// GameController: runs the game flow (turns, moves). Never touches the DOM.
+const GameController = (function () {
+  const players = [createPlayer("Player X", "X"), createPlayer("Player O", "O")];
+  let activePlayer = players[0]; // X always goes first
+
+  function switchPlayer() {
+    activePlayer = activePlayer === players[0] ? players[1] : players[0];
+  }
+
+  // Try to place the active player's mark at index.
+  // Returns { status, winner }:
+  //   'invalid'  – cell taken or out of range; nothing changes
+  //   'continue' – mark placed, turn passes to the other player
+  function playRound(index) {
+    const placed = Gameboard.placeMark(index, activePlayer.getMark());
+    if (!placed) {
+      return { status: "invalid", winner: null };
+    }
+
+    switchPlayer();
+    return { status: "continue", winner: null };
+  }
+
+  function getActivePlayer() {
+    return activePlayer;
+  }
+
+  function getPlayers() {
+    return [...players];
+  }
+
+  return { playRound, getActivePlayer, getPlayers };
+})();
+
 console.log("Tic Tac Toe loaded");

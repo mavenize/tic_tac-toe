@@ -117,31 +117,32 @@
       "text": "T4 · GameController: turns + playRound",
       "description": "IIFE that owns the players and the active player. playRound(index) returns { status, winner } with status continue / invalid.",
       "tags": [
-        "phase-1-console"
+        "phase-1-console",
+        "script.js:87-119"
       ],
       "priority": "Must",
-      "status": "Todo",
-      "completed": false,
+      "status": "Done",
+      "completed": true,
       "subtasks": [
         {
           "id": "t04-s1",
           "text": "Create players X and O inside the controller",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t04-s2",
           "text": "Active player + private switchPlayer",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t04-s3",
           "text": "playRound places the mark and returns continue",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t04-s4",
           "text": "Invalid moves return invalid without switching turn",
-          "completed": false
+          "completed": true
         }
       ],
       "createdAt": 1793872800003,
