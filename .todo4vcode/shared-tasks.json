@@ -118,7 +118,7 @@
       "description": "IIFE that owns the players and the active player. playRound(index) returns { status, winner } with status continue / invalid.",
       "tags": [
         "phase-1-console",
-        "script.js:87-119"
+        "script.js:87-185"
       ],
       "priority": "Must",
       "status": "Done",
@@ -153,36 +153,37 @@
       "text": "T5 · Win + tie detection, game-over lock",
       "description": "WIN_LINES constant (8 lines). checkWinner after each move, tie when board is full. Lock moves once the game is over.",
       "tags": [
-        "phase-1-console"
+        "phase-1-console",
+        "script.js:87-185"
       ],
       "priority": "Must",
-      "status": "Todo",
-      "completed": false,
+      "status": "Done",
+      "completed": true,
       "subtasks": [
         {
           "id": "t05-s1",
           "text": "WIN_LINES constant with 3 rows, 3 cols, 2 diagonals",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t05-s2",
           "text": "checkWinner returns win status + winner, adds a win",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t05-s3",
           "text": "Tie when board full with no winner, ties++",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t05-s4",
           "text": "isOver lock: moves after game end return invalid",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t05-s5",
           "text": "newRound and restart methods",
-          "completed": false
+          "completed": true
         }
       ],
       "createdAt": 1793872800004,

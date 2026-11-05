@@ -84,27 +84,77 @@ function createPlayer(name, mark) {
   return { getName, setName, getMark, getScore, addWin, resetScore };
 }
 
-// GameController: runs the game flow (turns, moves). Never touches the DOM.
+// GameController: runs the game flow (turns, wins, ties, scores).
+// Never touches the DOM.
 const GameController = (function () {
+  // Every row, column and diagonal that wins the game.
+  const WIN_LINES = [
+    [0, 1, 2], [3, 4, 5], [6, 7, 8], // rows
+    [0, 3, 6], [1, 4, 7], [2, 5, 8], // columns
+    [0, 4, 8], [2, 4, 6],            // diagonals
+  ];
+
   const players = [createPlayer("Player X", "X"), createPlayer("Player O", "O")];
   let activePlayer = players[0]; // X always goes first
+  let ties = 0;
+  let isOver = false; // true after a win or tie, until newRound/restart
 
   function switchPlayer() {
     activePlayer = activePlayer === players[0] ? players[1] : players[0];
   }
 
+  // True if the given mark fills any winning line.
+  function checkWinner(mark) {
+    const board = Gameboard.getBoard();
+    return WIN_LINES.some(([a, b, c]) =>
+      board[a] === mark && board[b] === mark && board[c] === mark
+    );
+  }
+
   // Try to place the active player's mark at index.
   // Returns { status, winner }:
-  //   'invalid'  – cell taken or out of range; nothing changes
+  //   'invalid'  – cell taken, out of range, or game over; nothing changes
   //   'continue' – mark placed, turn passes to the other player
+  //   'win'      – active player won; their score goes up, game is locked
+  //   'tie'      – board full with no winner; ties go up, game is locked
   function playRound(index) {
+    if (isOver) {
+      return { status: "invalid", winner: null };
+    }
+
     const placed = Gameboard.placeMark(index, activePlayer.getMark());
     if (!placed) {
       return { status: "invalid", winner: null };
     }
 
+    if (checkWinner(activePlayer.getMark())) {
+      activePlayer.addWin();
+      isOver = true;
+      return { status: "win", winner: activePlayer };
+    }
+
+    if (Gameboard.isFull()) {
+      ties++;
+      isOver = true;
+      return { status: "tie", winner: null };
+    }
+
     switchPlayer();
     return { status: "continue", winner: null };
+  }
+
+  // Clear the board for another round. Scores are kept.
+  function newRound() {
+    Gameboard.reset();
+    activePlayer = players[0];
+    isOver = false;
+  }
+
+  // Start over: new round plus all scores back to zero.
+  function restart() {
+    newRound();
+    players.forEach((player) => player.resetScore());
+    ties = 0;
   }
 
   function getActivePlayer() {
@@ -115,7 +165,23 @@ const GameController = (function () {
     return [...players];
   }
 
-  return { playRound, getActivePlayer, getPlayers };
+  function getScores() {
+    return { x: players[0].getScore(), ties, o: players[1].getScore() };
+  }
+
+  function isGameOver() {
+    return isOver;
+  }
+
+  return {
+    playRound,
+    newRound,
+    restart,
+    getActivePlayer,
+    getPlayers,
+    getScores,
+    isGameOver,
+  };
 })();
 
 console.log("Tic Tac Toe loaded");

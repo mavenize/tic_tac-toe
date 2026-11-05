@@ -93,7 +93,7 @@ These tasks mirror the todo4vcode tasks in `.todo4vcode/shared-tasks.json`, and 
 | T2 | 1 Console | `Gameboard` IIFE | Must | ☑ | `placeMark` rejects taken/out-of-range cells; `isFull`, `reset` and `print` work |
 | T3 | 1 Console | `createPlayer` factory | Must | ☑ | Two players can be created with names, marks and working score methods |
 | T4 | 1 Console | `GameController`: turns + `playRound` | Must | ☑ | Turns alternate X/O and `playRound` returns `continue` / `invalid` correctly |
-| T5 | 1 Console | Win + tie detection, game-over lock | Must | ☐ | All 8 lines detected, tie detected, moves after game over return `invalid` |
+| T5 | 1 Console | Win + tie detection, game-over lock | Must | ☑ | All 8 lines detected, tie detected, moves after game over return `invalid` |
 | T6 | 1 Console | Console playtest | Must | ☐ | Row, column, diagonal, tie, taken-cell and after-game-over scenarios all pass in the console |
 | T7 | 2 DOM | `DisplayController`: render board | Must | ☐ | A prefilled X/O board renders correctly in the page |
 | T8 | 2 DOM | Click to place marks | Must | ☐ | Clicking empty cells places marks; taken cells and a finished game ignore clicks |
@@ -109,3 +109,4 @@ These tasks mirror the todo4vcode tasks in `.todo4vcode/shared-tasks.json`, and 
 - 2026-11-05 · T2 · Gameboard IIFE: getBoard (copy), placeMark (rejects taken, out-of-range and non-integer indexes), isFull, reset, print. Verified with 10 scripted checks in Node, all passing.
 - 2026-11-05 · T3 · createPlayer factory: getName/setName, getMark, getScore/addWin/resetScore with private name and score. Verified with 7 scripted checks in Node (two independent players), all passing.
 - 2026-11-05 · T4 · GameController IIFE: X/O players, activePlayer + private switchPlayer, playRound returns continue/invalid (invalid keeps the turn). getActivePlayer, getPlayers. Verified with 9 scripted checks in Node, all passing.
+- 2026-11-05 · T5 · WIN_LINES + checkWinner, tie on full board, isOver lock, newRound (keeps scores), restart (clears scores), getScores, isGameOver. Win is checked before tie, so a 9th-move win counts as a win. Verified with 21 scripted checks in Node (all 8 lines for X, O column win, tie, locked moves, newRound/restart), all passing.
