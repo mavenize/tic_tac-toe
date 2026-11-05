@@ -255,6 +255,8 @@ const DisplayController = (function () {
     renderScoreboard();
     // Next Round only makes sense once the round has ended.
     nextRoundBtn.disabled = !GameController.isGameOver();
+    // Lets the CSS turn off the hover effect once the round has ended.
+    boardEl.classList.toggle("game-over", GameController.isGameOver());
   }
 
   // One listener on the board handles clicks on every cell (event delegation).

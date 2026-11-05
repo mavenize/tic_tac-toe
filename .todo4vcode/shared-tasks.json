@@ -237,7 +237,7 @@
       "tags": [
         "phase-2-dom",
         "script.js:207-219",
-        "style.css:26-40"
+        "style.css:93-153"
       ],
       "priority": "Must",
       "status": "Done",
@@ -333,7 +333,7 @@
         "index.html:18-45",
         "script.js:146-150",
         "script.js:234-282",
-        "style.css:42-66"
+        "style.css:37-91"
       ],
       "priority": "Must",
       "status": "Done",
@@ -375,7 +375,7 @@
       "tags": [
         "phase-3-ui",
         "index.html:37-51",
-        "style.css:68-77",
+        "style.css:155-182",
         "script.js:204-208",
         "script.js:239-256"
       ],
@@ -407,36 +407,44 @@
       "text": "T12 · Match the mockup + README",
       "description": "Black background, white inner-only grid lines, Raleway uppercase labels, big score digits, hover on empty cells, works on mobile width. Update README.",
       "tags": [
-        "phase-4-polish"
+        "phase-4-polish",
+        "style.css:1-205",
+        "script.js:258-259",
+        "README.md:1-35"
       ],
       "priority": "Should",
-      "status": "Todo",
-      "completed": false,
+      "status": "Done",
+      "completed": true,
       "subtasks": [
         {
           "id": "t12-s1",
           "text": "Black background, inner grid lines only",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t12-s2",
           "text": "Raleway font, uppercase labels, large score digits",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t12-s3",
           "text": "Hover effect on empty cells during a round",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t12-s4",
           "text": "Responsive at phone width",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t12-s5",
           "text": "Update README with description and how to play",
-          "completed": false
+          "completed": true
+        },
+        {
+          "id": "t12-s6",
+          "text": "Fix: cells keep a fixed size when X/O are placed",
+          "completed": true
         }
       ],
       "createdAt": 1793872800011,

@@ -1,4 +1,4 @@
-/* Base styles — full mockup styling comes in T12 */
+/* Tic Tac Toe styles, matching tictactoe UI.png (T12) */
 
 *,
 *::before,
@@ -8,6 +8,11 @@
   padding: 0;
 }
 
+/* Make sure the hidden attribute always wins over display rules below. */
+[hidden] {
+  display: none !important;
+}
+
 body {
   min-height: 100vh;
   background: #000;
@@ -15,63 +20,186 @@ body {
   font-family: "Raleway", sans-serif;
 }
 
+/* Buttons and inputs don't inherit the page font by default. */
+button,
+input {
+  font: inherit;
+  color: inherit;
+}
+
 .game {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
-  padding: 2rem 1rem;
+  padding: 3rem 1rem;
 }
 
-/* Board: basic 3x3 grid (T7). Mockup styling comes in T12. */
-.board {
-  display: grid;
-  grid-template-columns: repeat(3, 100px);
-  grid-template-rows: repeat(3, 100px);
-}
-
-.cell {
-  background: none;
-  border: 1px solid #fff;
-  color: #fff;
-  font-family: inherit;
-  font-size: 3rem;
-  cursor: pointer;
-}
-
-/* Name form and game area (T10). Mockup styling comes in T12. */
-
-/* Make sure the hidden attribute always wins over display rules below. */
-[hidden] {
-  display: none !important;
-}
+/* ---------- Name form (shown before Start) ---------- */
 
 .setup {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  width: min(300px, 100%);
+  width: min(320px, 100%);
 }
+
+.setup label {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.9rem;
+}
+
+.setup input {
+  background: none;
+  border: none;
+  border-bottom: 2px solid #fff;
+  padding: 0.4rem 0;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+}
+
+.setup input::placeholder {
+  color: #666;
+}
+
+.setup input:focus {
+  outline: none;
+  border-bottom-color: #999;
+}
+
+/* ---------- Buttons: Start, Next Round, Restart ---------- */
+
+.setup button,
+.controls button {
+  background: none;
+  border: 2px solid #fff;
+  padding: 0.6rem 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+}
+
+.setup button:hover,
+.controls button:hover:not(:disabled) {
+  background: #fff;
+  color: #000;
+}
+
+.controls button:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+/* ---------- Game area ---------- */
 
 .play {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 2rem;
+  width: min(600px, 100%);
+}
+
+/* Board: a square 3x3 grid that shrinks to fit narrow screens.
+   minmax(0, 1fr) keeps all rows and columns the same size, so placing
+   an X or O can't make its cell grow (plain 1fr grows to fit the mark). */
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: repeat(3, minmax(0, 1fr));
+  width: 100%;
+  aspect-ratio: 1;
+}
+
+.cell {
+  background: none;
+  border: none;
+  font-size: clamp(3rem, 18vw, 7rem);
+  line-height: 1;
+  cursor: pointer;
+}
+
+/* Inner lines only: a right border on the first two columns,
+   a bottom border on the first two rows. */
+.cell:not(:nth-child(3n)) {
+  border-right: 4px solid #fff;
+}
+
+.cell:nth-child(-n + 6) {
+  border-bottom: 4px solid #fff;
+}
+
+/* Hover on empty cells, only while the round is still being played. */
+.board:not(.game-over) .cell:empty:hover {
+  background: #1a1a1a;
+}
+
+.cell:not(:empty),
+.board.game-over .cell {
+  cursor: default;
+}
+
+.cell:focus-visible {
+  outline: 2px solid #888;
+  outline-offset: -8px;
+}
+
+.status {
+  min-height: 1.5em;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-align: center;
+}
+
+/* ---------- Scoreboard: NAME (X) | TIE | NAME (O) ---------- */
+
+.scoreboard {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  width: 100%;
+  text-align: center;
+}
+
+/* Label on top, count at the bottom, so the three counts line up
+   even when a long name wraps onto more lines. */
+.score {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.score-label {
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  overflow-wrap: anywhere; /* long names wrap instead of overflowing */
+}
+
+.score-count {
+  font-size: 3.5rem;
+  line-height: 1.2;
 }
 
 .controls {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 1rem;
 }
 
-/* Scoreboard: three columns, label above count (T11). Mockup styling comes in T12. */
-.scoreboard {
-  display: flex;
-  gap: 2rem;
-  text-align: center;
-}
+/* ---------- Phone width ---------- */
 
-.score-count {
-  font-size: 2rem;
+@media (max-width: 480px) {
+  .game {
+    padding-top: 1.5rem;
+  }
+
+  .score-label {
+    font-size: 0.85rem;
+  }
+
+  .score-count {
+    font-size: 2.5rem;
+  }
 }
