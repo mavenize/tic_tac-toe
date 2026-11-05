@@ -45,36 +45,37 @@
       "text": "T2 · Gameboard module (IIFE)",
       "description": "Private board array of 9 cells. API: getBoard (copy), placeMark(index, mark), isFull, reset, print.",
       "tags": [
-        "phase-1-console"
+        "phase-1-console",
+        "script.js:8-52"
       ],
       "priority": "Must",
-      "status": "Todo",
-      "completed": false,
+      "status": "Done",
+      "completed": true,
       "subtasks": [
         {
           "id": "t02-s1",
           "text": "Private board array of 9 empty cells",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t02-s2",
           "text": "getBoard returns a copy",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t02-s3",
           "text": "placeMark rejects taken and out-of-range cells",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t02-s4",
           "text": "isFull and reset",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t02-s5",
           "text": "print logs a 3x3 grid to the console",
-          "completed": false
+          "completed": true
         }
       ],
       "createdAt": 1793872800001,

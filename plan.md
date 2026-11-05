@@ -90,7 +90,7 @@ These tasks mirror the todo4vcode tasks in `.todo4vcode/shared-tasks.json`, and 
 | # | Phase | Task | Priority | Status | Done when |
 |---|---|---|---|---|---|
 | T1 | 0 Setup | Scaffold `index.html`, `style.css`, `script.js` | Must | ☑ | The page loads, CSS applies, and the script runs (console log) with no errors |
-| T2 | 1 Console | `Gameboard` IIFE | Must | ☐ | `placeMark` rejects taken/out-of-range cells; `isFull`, `reset` and `print` work |
+| T2 | 1 Console | `Gameboard` IIFE | Must | ☑ | `placeMark` rejects taken/out-of-range cells; `isFull`, `reset` and `print` work |
 | T3 | 1 Console | `createPlayer` factory | Must | ☐ | Two players can be created with names, marks and working score methods |
 | T4 | 1 Console | `GameController`: turns + `playRound` | Must | ☐ | Turns alternate X/O and `playRound` returns `continue` / `invalid` correctly |
 | T5 | 1 Console | Win + tie detection, game-over lock | Must | ☐ | All 8 lines detected, tie detected, moves after game over return `invalid` |
@@ -106,3 +106,4 @@ These tasks mirror the todo4vcode tasks in `.todo4vcode/shared-tasks.json`, and 
 
 <!-- One line per finished task: YYYY-MM-DD · T# · short note -->
 - 2026-11-05 · T1 · Scaffolded index.html (section placeholders), style.css (base + Raleway), script.js (defer). Verified in headless Chrome: script logs, no errors, black background.
+- 2026-11-05 · T2 · Gameboard IIFE: getBoard (copy), placeMark (rejects taken, out-of-range and non-integer indexes), isFull, reset, print. Verified with 10 scripted checks in Node, all passing.
