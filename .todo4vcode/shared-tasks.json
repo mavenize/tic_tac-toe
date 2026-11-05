@@ -235,26 +235,28 @@
       "text": "T7 · DisplayController: render board",
       "description": "IIFE that caches DOM elements and renders 9 cells from Gameboard.getBoard() with data-index. Test first with a prefilled X/O board.",
       "tags": [
-        "phase-2-dom"
+        "phase-2-dom",
+        "script.js:187-210",
+        "style.css:26-40"
       ],
       "priority": "Must",
-      "status": "Todo",
-      "completed": false,
+      "status": "Done",
+      "completed": true,
       "subtasks": [
         {
           "id": "t07-s1",
           "text": "DisplayController IIFE with cached elements",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t07-s2",
           "text": "renderBoard builds 9 cells with data-index",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t07-s3",
           "text": "Verify with a prefilled X/O board, then remove the test data",
-          "completed": false
+          "completed": true
         }
       ],
       "createdAt": 1793872800006,

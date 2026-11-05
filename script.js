@@ -184,4 +184,29 @@ const GameController = (function () {
   };
 })();
 
+// DisplayController: the only module that touches the DOM.
+// Reads state from Gameboard/GameController and draws it on the page.
+const DisplayController = (function () {
+  // Cache DOM elements once.
+  const boardEl = document.querySelector("#board");
+
+  // Build 9 cell buttons from the current board.
+  function renderBoard() {
+    boardEl.textContent = ""; // clear old cells
+
+    Gameboard.getBoard().forEach((mark, index) => {
+      const cell = document.createElement("button");
+      cell.type = "button";
+      cell.className = "cell";
+      cell.dataset.index = index;
+      cell.textContent = mark;
+      boardEl.appendChild(cell);
+    });
+  }
+
+  renderBoard(); // draw the empty board on page load
+
+  return { renderBoard };
+})();
+
 console.log("Tic Tac Toe loaded");

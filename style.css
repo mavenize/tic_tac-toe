@@ -22,3 +22,19 @@ body {
   gap: 2rem;
   padding: 2rem 1rem;
 }
+
+/* Board: basic 3x3 grid (T7). Mockup styling comes in T12. */
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+}
+
+.cell {
+  background: none;
+  border: 1px solid #fff;
+  color: #fff;
+  font-family: inherit;
+  font-size: 3rem;
+  cursor: pointer;
+}
