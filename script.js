@@ -204,6 +204,21 @@ const DisplayController = (function () {
     });
   }
 
+  // One listener on the board handles clicks on every cell (event delegation).
+  function handleBoardClick(event) {
+    if (!event.target.classList.contains("cell")) return;
+
+    const index = Number(event.target.dataset.index);
+    const result = GameController.playRound(index);
+
+    // Taken cell or finished game: ignore the click.
+    if (result.status === "invalid") return;
+
+    renderBoard();
+  }
+
+  boardEl.addEventListener("click", handleBoardClick);
+
   renderBoard(); // draw the empty board on page load
 
   return { renderBoard };

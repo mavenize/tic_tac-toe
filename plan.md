@@ -96,7 +96,7 @@ These tasks mirror the todo4vcode tasks in `.todo4vcode/shared-tasks.json`, and 
 | T5 | 1 Console | Win + tie detection, game-over lock | Must | ☑ | All 8 lines detected, tie detected, moves after game over return `invalid` |
 | T6 | 1 Console | Console playtest | Must | ☑ | Row, column, diagonal, tie, taken-cell and after-game-over scenarios all pass in the console |
 | T7 | 2 DOM | `DisplayController`: render board | Must | ☑ | A prefilled X/O board renders correctly in the page |
-| T8 | 2 DOM | Click to place marks | Must | ☐ | Clicking empty cells places marks; taken cells and a finished game ignore clicks |
+| T8 | 2 DOM | Click to place marks | Must | ☑ | Clicking empty cells places marks; taken cells and a finished game ignore clicks |
 | T9 | 2 DOM | Status + result display | Must | ☐ | Shows whose turn it is, then the winner's name or "Tie" at the end |
 | T10 | 3 UI | Names, Start/Restart, Next Round | Must | ☐ | Names flow into the game; Restart resets everything; Next Round keeps scores |
 | T11 | 3 UI | Running scoreboard | Must | ☐ | X wins / ties / O wins update after each round and reset on Restart |
@@ -112,3 +112,4 @@ These tasks mirror the todo4vcode tasks in `.todo4vcode/shared-tasks.json`, and 
 - 2026-11-05 · T5 · WIN_LINES + checkWinner, tie on full board, isOver lock, newRound (keeps scores), restart (clears scores), getScores, isGameOver. Win is checked before tie, so a 9th-move win counts as a win. Verified with 21 scripted checks in Node (all 8 lines for X, O column win, tie, locked moves, newRound/restart), all passing.
 - 2026-11-05 · T6 · Console playtest in headless Chrome against the real script.js: X row win, O column win, diagonal win, tie, taken cell rejected (turn kept), move after game over rejected (board unchanged); running score X 3 / ties 1 / O 1 across rounds. 11/11 checks pass, no code changes. Phase 1 complete.
 - 2026-11-05 · T7 · DisplayController IIFE: caches #board, renderBoard builds 9 button.cell elements with data-index, renders on load. Basic 3x3 grid CSS. Verified in headless Chrome with temporary prefilled X/O data (screenshot + DOM dump correct), test data removed, page loads with 9 empty cells.
+- 2026-11-05 · T8 · One delegated click listener on #board: reads data-index, calls GameController.playRound, re-renders unless the move is invalid. Verified in headless Chrome by clicking cells on the real page: marks alternate X/O, taken cells and clicks after a win are ignored, DOM matches Gameboard (10/10 checks).
