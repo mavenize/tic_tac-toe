@@ -89,7 +89,7 @@ These tasks mirror the todo4vcode tasks in `.todo4vcode/shared-tasks.json`, and 
 
 | # | Phase | Task | Priority | Status | Done when |
 |---|---|---|---|---|---|
-| T1 | 0 Setup | Scaffold `index.html`, `style.css`, `script.js` | Must | ☐ | The page loads, CSS applies, and the script runs (console log) with no errors |
+| T1 | 0 Setup | Scaffold `index.html`, `style.css`, `script.js` | Must | ☑ | The page loads, CSS applies, and the script runs (console log) with no errors |
 | T2 | 1 Console | `Gameboard` IIFE | Must | ☐ | `placeMark` rejects taken/out-of-range cells; `isFull`, `reset` and `print` work |
 | T3 | 1 Console | `createPlayer` factory | Must | ☐ | Two players can be created with names, marks and working score methods |
 | T4 | 1 Console | `GameController`: turns + `playRound` | Must | ☐ | Turns alternate X/O and `playRound` returns `continue` / `invalid` correctly |
@@ -105,3 +105,4 @@ These tasks mirror the todo4vcode tasks in `.todo4vcode/shared-tasks.json`, and 
 ## Progress log
 
 <!-- One line per finished task: YYYY-MM-DD · T# · short note -->
+- 2026-11-05 · T1 · Scaffolded index.html (section placeholders), style.css (base + Raleway), script.js (defer). Verified in headless Chrome: script logs, no errors, black background.

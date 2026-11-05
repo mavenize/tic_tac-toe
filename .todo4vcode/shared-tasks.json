@@ -7,31 +7,34 @@
       "text": "T1 · Scaffold project files",
       "description": "Create index.html, style.css and script.js. Load the script with defer. Link the Raleway Google Font.",
       "tags": [
-        "phase-0-setup"
+        "phase-0-setup",
+        "index.html:1-34",
+        "style.css:1-24",
+        "script.js:1-8"
       ],
       "priority": "Must",
-      "status": "Todo",
-      "completed": false,
+      "status": "Done",
+      "completed": true,
       "subtasks": [
         {
           "id": "t01-s1",
           "text": "Create index.html with containers for name form, board, status, scoreboard, buttons",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t01-s2",
           "text": "Create style.css and link it",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t01-s3",
           "text": "Create script.js loaded with defer",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t01-s4",
           "text": "Page loads with no console errors",
-          "completed": false
+          "completed": true
         }
       ],
       "createdAt": 1793872800000,

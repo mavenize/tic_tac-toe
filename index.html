@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tic Tac Toe</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main class="game">
+      <!-- Player name form (T10) -->
+      <form class="setup" id="setup-form"></form>
+
+      <!-- Game board: 9 cells rendered by DisplayController (T7) -->
+      <div class="board" id="board"></div>
+
+      <!-- Whose turn / round result (T9) -->
+      <p class="status" id="status"></p>
+
+      <!-- Running scoreboard: NAME (X) | TIE | NAME (O) (T11) -->
+      <section class="scoreboard" id="scoreboard"></section>
+
+      <!-- Next Round / Restart buttons (T10) -->
+      <div class="controls" id="controls"></div>
+    </main>
+  </body>
+</html>
