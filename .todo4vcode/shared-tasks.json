@@ -86,26 +86,27 @@
       "text": "T3 · Player factory",
       "description": "createPlayer(name, mark): getName, setName, getMark, getScore, addWin, resetScore.",
       "tags": [
-        "phase-1-console"
+        "phase-1-console",
+        "script.js:54-85"
       ],
       "priority": "Must",
-      "status": "Todo",
-      "completed": false,
+      "status": "Done",
+      "completed": true,
       "subtasks": [
         {
           "id": "t03-s1",
           "text": "Name and mark getters, setName",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t03-s2",
           "text": "Score: getScore, addWin, resetScore",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t03-s3",
           "text": "Create X and O players in console to verify",
-          "completed": false
+          "completed": true
         }
       ],
       "createdAt": 1793872800002,

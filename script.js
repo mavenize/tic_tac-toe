@@ -51,4 +51,37 @@ const Gameboard = (function () {
   return { getBoard, placeMark, isFull, reset, print };
 })();
 
+// createPlayer: factory for one player (name, mark, score).
+// The mark never changes; the name can be updated from the name form.
+function createPlayer(name, mark) {
+  let playerName = name;
+  let score = 0;
+
+  function getName() {
+    return playerName;
+  }
+
+  function setName(newName) {
+    playerName = newName;
+  }
+
+  function getMark() {
+    return mark;
+  }
+
+  function getScore() {
+    return score;
+  }
+
+  function addWin() {
+    score++;
+  }
+
+  function resetScore() {
+    score = 0;
+  }
+
+  return { getName, setName, getMark, getScore, addWin, resetScore };
+}
+
 console.log("Tic Tac Toe loaded");
