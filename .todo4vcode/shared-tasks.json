@@ -194,36 +194,37 @@
       "text": "T6 · Console playtest",
       "description": "Play full games from the DevTools console and confirm every scenario.",
       "tags": [
-        "phase-1-console"
+        "phase-1-console",
+        "script.js:1-185"
       ],
       "priority": "Must",
-      "status": "Todo",
-      "completed": false,
+      "status": "Done",
+      "completed": true,
       "subtasks": [
         {
           "id": "t06-s1",
           "text": "X wins on a row",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t06-s2",
           "text": "O wins on a column",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t06-s3",
           "text": "Diagonal win",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t06-s4",
           "text": "Tie game",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t06-s5",
           "text": "Taken cell and move after game over are rejected",
-          "completed": false
+          "completed": true
         }
       ],
       "createdAt": 1793872800005,
