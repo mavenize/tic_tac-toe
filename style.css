@@ -38,3 +38,29 @@ body {
   font-size: 3rem;
   cursor: pointer;
 }
+
+/* Name form and game area (T10). Mockup styling comes in T12. */
+
+/* Make sure the hidden attribute always wins over display rules below. */
+[hidden] {
+  display: none !important;
+}
+
+.setup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: min(300px, 100%);
+}
+
+.play {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.controls {
+  display: flex;
+  gap: 1rem;
+}

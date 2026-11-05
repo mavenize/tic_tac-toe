@@ -15,20 +15,34 @@
   </head>
   <body>
     <main class="game">
-      <!-- Player name form (T10) -->
-      <form class="setup" id="setup-form"></form>
+      <!-- Player name form, shown before the game starts (T10) -->
+      <form class="setup" id="setup-form">
+        <label for="name-x">Player X</label>
+        <input type="text" id="name-x" maxlength="20" placeholder="Player X" />
 
-      <!-- Game board: 9 cells rendered by DisplayController (T7) -->
-      <div class="board" id="board"></div>
+        <label for="name-o">Player O</label>
+        <input type="text" id="name-o" maxlength="20" placeholder="Player O" />
 
-      <!-- Whose turn / round result (T9) -->
-      <p class="status" id="status"></p>
+        <button type="submit">Start</button>
+      </form>
 
-      <!-- Running scoreboard: NAME (X) | TIE | NAME (O) (T11) -->
-      <section class="scoreboard" id="scoreboard"></section>
+      <!-- Everything below stays hidden until Start is pressed (T10) -->
+      <div class="play" id="play" hidden>
+        <!-- Game board: 9 cells rendered by DisplayController (T7) -->
+        <div class="board" id="board"></div>
 
-      <!-- Next Round / Restart buttons (T10) -->
-      <div class="controls" id="controls"></div>
+        <!-- Whose turn / round result (T9) -->
+        <p class="status" id="status"></p>
+
+        <!-- Running scoreboard: NAME (X) | TIE | NAME (O) (T11) -->
+        <section class="scoreboard" id="scoreboard"></section>
+
+        <!-- Next Round / Restart buttons (T10) -->
+        <div class="controls" id="controls">
+          <button type="button" id="next-round" disabled>Next Round</button>
+          <button type="button" id="restart">Restart</button>
+        </div>
+      </div>
     </main>
   </body>
 </html>

@@ -118,7 +118,7 @@
       "description": "IIFE that owns the players and the active player. playRound(index) returns { status, winner } with status continue / invalid.",
       "tags": [
         "phase-1-console",
-        "script.js:87-185"
+        "script.js:87-192"
       ],
       "priority": "Must",
       "status": "Done",
@@ -154,7 +154,7 @@
       "description": "WIN_LINES constant (8 lines). checkWinner after each move, tie when board is full. Lock moves once the game is over.",
       "tags": [
         "phase-1-console",
-        "script.js:87-185"
+        "script.js:87-192"
       ],
       "priority": "Must",
       "status": "Done",
@@ -195,7 +195,7 @@
       "description": "Play full games from the DevTools console and confirm every scenario.",
       "tags": [
         "phase-1-console",
-        "script.js:1-185"
+        "script.js:1-192"
       ],
       "priority": "Must",
       "status": "Done",
@@ -236,7 +236,7 @@
       "description": "IIFE that caches DOM elements and renders 9 cells from Gameboard.getBoard() with data-index. Test first with a prefilled X/O board.",
       "tags": [
         "phase-2-dom",
-        "script.js:194-206",
+        "script.js:207-219",
         "style.css:26-40"
       ],
       "priority": "Must",
@@ -268,7 +268,7 @@
       "description": "One delegated click listener on the board calls GameController.playRound(index) and re-renders.",
       "tags": [
         "phase-2-dom",
-        "script.js:221-235"
+        "script.js:241-253"
       ],
       "priority": "Must",
       "status": "Done",
@@ -299,7 +299,7 @@
       "description": "Status line shows whose turn it is, then the winner name or Tie when the round ends.",
       "tags": [
         "phase-2-dom",
-        "script.js:208-219"
+        "script.js:221-232"
       ],
       "priority": "Must",
       "status": "Done",
@@ -329,31 +329,40 @@
       "text": "T10 · Names, Start/Restart, Next Round",
       "description": "Name form for both players, Start/Restart button (resets scores) and Next Round button (keeps scores).",
       "tags": [
-        "phase-3-ui"
+        "phase-3-ui",
+        "index.html:18-45",
+        "script.js:146-150",
+        "script.js:234-282",
+        "style.css:42-66"
       ],
       "priority": "Must",
-      "status": "Todo",
-      "completed": false,
+      "status": "Done",
+      "completed": true,
       "subtasks": [
         {
           "id": "t10-s1",
           "text": "Name inputs for X and O with defaults if empty",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t10-s2",
           "text": "Start sets names and begins the game",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t10-s3",
           "text": "Restart resets board, scores and shows the name form",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t10-s4",
           "text": "Next Round clears the board and keeps scores",
-          "completed": false
+          "completed": true
+        },
+        {
+          "id": "t10-s5",
+          "text": "Game area hidden until Start; Next Round enabled only after a win or tie",
+          "completed": true
         }
       ],
       "createdAt": 1793872800009,

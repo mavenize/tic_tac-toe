@@ -68,6 +68,8 @@ The aim is as little global code as possible. Every module is a factory; a modul
 - X always moves first, including in each new round.
 - Clicking a taken cell does nothing. After a win or tie, the board is locked until Next Round or Restart.
 - Next Round keeps scores. Restart clears scores and shows the name form again.
+- The board, status, scoreboard and buttons stay hidden until Start is pressed.
+- Next Round is enabled only after a win or tie, so a round can't be skipped without being scored.
 
 ## File layout
 ```
@@ -98,7 +100,7 @@ These tasks mirror the todo4vcode tasks in `.todo4vcode/shared-tasks.json`, and 
 | T7 | 2 DOM | `DisplayController`: render board | Must | ☑ | A prefilled X/O board renders correctly in the page |
 | T8 | 2 DOM | Click to place marks | Must | ☑ | Clicking empty cells places marks; taken cells and a finished game ignore clicks |
 | T9 | 2 DOM | Status + result display | Must | ☑ | Shows whose turn it is, then the winner's name or "Tie" at the end |
-| T10 | 3 UI | Names, Start/Restart, Next Round | Must | ☐ | Names flow into the game; Restart resets everything; Next Round keeps scores |
+| T10 | 3 UI | Names, Start/Restart, Next Round | Must | ☑ | Names flow into the game; Restart resets everything; Next Round keeps scores |
 | T11 | 3 UI | Running scoreboard | Must | ☐ | X wins / ties / O wins update after each round and reset on Restart |
 | T12 | 4 Polish | Match the mockup + README | Should | ☐ | Styled like the mockup, works on mobile width, README describes the project |
 
@@ -114,3 +116,4 @@ These tasks mirror the todo4vcode tasks in `.todo4vcode/shared-tasks.json`, and 
 - 2026-11-05 · T7 · DisplayController IIFE: caches #board, renderBoard builds 9 button.cell elements with data-index, renders on load. Basic 3x3 grid CSS. Verified in headless Chrome with temporary prefilled X/O data (screenshot + DOM dump correct), test data removed, page loads with 9 empty cells.
 - 2026-11-05 · T8 · One delegated click listener on #board: reads data-index, calls GameController.playRound, re-renders unless the move is invalid. Verified in headless Chrome by clicking cells on the real page: marks alternate X/O, taken cells and clicks after a win are ignored, DOM matches Gameboard (10/10 checks).
 - 2026-11-05 · T9 · renderStatus(result) on #status: "NAME's turn (X)", "NAME wins!" or "It's a tie!". Called on load and after every valid click. Verified in headless Chrome: turn text alternates, taken-cell and post-win clicks keep the text, X win, O win and tie messages correct (8/8 checks + screenshot). Phase 2 complete.
+- 2026-11-05 · T10 · Name form (X/O inputs + Start), #play wrapper hidden until Start, Next Round (enabled only after win/tie, keeps scores) and Restart (resets scores, clears names, shows form). GameController.setPlayerNames trims and falls back to "Player X"/"Player O". Verified in headless Chrome by clicking through the full flow on the real page (26/26 checks + screenshots).

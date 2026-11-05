@@ -143,6 +143,12 @@ const GameController = (function () {
     return { status: "continue", winner: null };
   }
 
+  // Set both names. An empty name falls back to "Player X" / "Player O".
+  function setPlayerNames(nameX, nameO) {
+    players[0].setName(nameX.trim() || "Player X");
+    players[1].setName(nameO.trim() || "Player O");
+  }
+
   // Clear the board for another round. Scores are kept.
   function newRound() {
     Gameboard.reset();
@@ -175,6 +181,7 @@ const GameController = (function () {
 
   return {
     playRound,
+    setPlayerNames,
     newRound,
     restart,
     getActivePlayer,
@@ -188,8 +195,14 @@ const GameController = (function () {
 // Reads state from Gameboard/GameController and draws it on the page.
 const DisplayController = (function () {
   // Cache DOM elements once.
+  const formEl = document.querySelector("#setup-form");
+  const nameXInput = document.querySelector("#name-x");
+  const nameOInput = document.querySelector("#name-o");
+  const playEl = document.querySelector("#play");
   const boardEl = document.querySelector("#board");
   const statusEl = document.querySelector("#status");
+  const nextRoundBtn = document.querySelector("#next-round");
+  const restartBtn = document.querySelector("#restart");
 
   // Build 9 cell buttons from the current board.
   function renderBoard() {
@@ -218,6 +231,14 @@ const DisplayController = (function () {
     }
   }
 
+  // Redraw everything that changes during a game.
+  function render(result) {
+    renderBoard();
+    renderStatus(result);
+    // Next Round only makes sense once the round has ended.
+    nextRoundBtn.disabled = !GameController.isGameOver();
+  }
+
   // One listener on the board handles clicks on every cell (event delegation).
   function handleBoardClick(event) {
     if (!event.target.classList.contains("cell")) return;
@@ -228,15 +249,37 @@ const DisplayController = (function () {
     // Taken cell or finished game: ignore the click.
     if (result.status === "invalid") return;
 
-    renderBoard();
-    renderStatus(result);
+    render(result);
+  }
+
+  // Start: take the names, hide the form and show the game.
+  function handleStart(event) {
+    event.preventDefault(); // stop the form from reloading the page
+    GameController.setPlayerNames(nameXInput.value, nameOInput.value);
+    formEl.hidden = true;
+    playEl.hidden = false;
+    render({ status: "continue" });
+  }
+
+  // Next Round: clear the board, keep the scores.
+  function handleNextRound() {
+    GameController.newRound();
+    render({ status: "continue" });
+  }
+
+  // Restart: reset the game and scores, clear the names, show the form again.
+  function handleRestart() {
+    GameController.restart();
+    formEl.reset();
+    playEl.hidden = true;
+    formEl.hidden = false;
+    nameXInput.focus();
   }
 
   boardEl.addEventListener("click", handleBoardClick);
-
-  // Draw the empty board and first turn on page load.
-  renderBoard();
-  renderStatus({ status: "continue" });
+  formEl.addEventListener("submit", handleStart);
+  nextRoundBtn.addEventListener("click", handleNextRound);
+  restartBtn.addEventListener("click", handleRestart);
 
   return { renderBoard, renderStatus };
 })();
