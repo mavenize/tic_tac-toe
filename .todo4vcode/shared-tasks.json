@@ -1,0 +1,421 @@
+{
+  "format": "todo4vcode-shared-tasks",
+  "version": "1.0.0",
+  "tasks": [
+    {
+      "id": "t01-setup",
+      "text": "T1 · Scaffold project files",
+      "description": "Create index.html, style.css and script.js. Load the script with defer. Link the Raleway Google Font.",
+      "tags": [
+        "phase-0-setup"
+      ],
+      "priority": "Must",
+      "status": "Todo",
+      "completed": false,
+      "subtasks": [
+        {
+          "id": "t01-s1",
+          "text": "Create index.html with containers for name form, board, status, scoreboard, buttons",
+          "completed": false
+        },
+        {
+          "id": "t01-s2",
+          "text": "Create style.css and link it",
+          "completed": false
+        },
+        {
+          "id": "t01-s3",
+          "text": "Create script.js loaded with defer",
+          "completed": false
+        },
+        {
+          "id": "t01-s4",
+          "text": "Page loads with no console errors",
+          "completed": false
+        }
+      ],
+      "createdAt": 1793872800000,
+      "order": 1000
+    },
+    {
+      "id": "t02-gameboard",
+      "text": "T2 · Gameboard module (IIFE)",
+      "description": "Private board array of 9 cells. API: getBoard (copy), placeMark(index, mark), isFull, reset, print.",
+      "tags": [
+        "phase-1-console"
+      ],
+      "priority": "Must",
+      "status": "Todo",
+      "completed": false,
+      "subtasks": [
+        {
+          "id": "t02-s1",
+          "text": "Private board array of 9 empty cells",
+          "completed": false
+        },
+        {
+          "id": "t02-s2",
+          "text": "getBoard returns a copy",
+          "completed": false
+        },
+        {
+          "id": "t02-s3",
+          "text": "placeMark rejects taken and out-of-range cells",
+          "completed": false
+        },
+        {
+          "id": "t02-s4",
+          "text": "isFull and reset",
+          "completed": false
+        },
+        {
+          "id": "t02-s5",
+          "text": "print logs a 3x3 grid to the console",
+          "completed": false
+        }
+      ],
+      "createdAt": 1793872800001,
+      "order": 2000
+    },
+    {
+      "id": "t03-player",
+      "text": "T3 · Player factory",
+      "description": "createPlayer(name, mark): getName, setName, getMark, getScore, addWin, resetScore.",
+      "tags": [
+        "phase-1-console"
+      ],
+      "priority": "Must",
+      "status": "Todo",
+      "completed": false,
+      "subtasks": [
+        {
+          "id": "t03-s1",
+          "text": "Name and mark getters, setName",
+          "completed": false
+        },
+        {
+          "id": "t03-s2",
+          "text": "Score: getScore, addWin, resetScore",
+          "completed": false
+        },
+        {
+          "id": "t03-s3",
+          "text": "Create X and O players in console to verify",
+          "completed": false
+        }
+      ],
+      "createdAt": 1793872800002,
+      "order": 3000
+    },
+    {
+      "id": "t04-controller",
+      "text": "T4 · GameController: turns + playRound",
+      "description": "IIFE that owns the players and the active player. playRound(index) returns { status, winner } with status continue / invalid.",
+      "tags": [
+        "phase-1-console"
+      ],
+      "priority": "Must",
+      "status": "Todo",
+      "completed": false,
+      "subtasks": [
+        {
+          "id": "t04-s1",
+          "text": "Create players X and O inside the controller",
+          "completed": false
+        },
+        {
+          "id": "t04-s2",
+          "text": "Active player + private switchPlayer",
+          "completed": false
+        },
+        {
+          "id": "t04-s3",
+          "text": "playRound places the mark and returns continue",
+          "completed": false
+        },
+        {
+          "id": "t04-s4",
+          "text": "Invalid moves return invalid without switching turn",
+          "completed": false
+        }
+      ],
+      "createdAt": 1793872800003,
+      "order": 4000
+    },
+    {
+      "id": "t05-winlogic",
+      "text": "T5 · Win + tie detection, game-over lock",
+      "description": "WIN_LINES constant (8 lines). checkWinner after each move, tie when board is full. Lock moves once the game is over.",
+      "tags": [
+        "phase-1-console"
+      ],
+      "priority": "Must",
+      "status": "Todo",
+      "completed": false,
+      "subtasks": [
+        {
+          "id": "t05-s1",
+          "text": "WIN_LINES constant with 3 rows, 3 cols, 2 diagonals",
+          "completed": false
+        },
+        {
+          "id": "t05-s2",
+          "text": "checkWinner returns win status + winner, adds a win",
+          "completed": false
+        },
+        {
+          "id": "t05-s3",
+          "text": "Tie when board full with no winner, ties++",
+          "completed": false
+        },
+        {
+          "id": "t05-s4",
+          "text": "isOver lock: moves after game end return invalid",
+          "completed": false
+        },
+        {
+          "id": "t05-s5",
+          "text": "newRound and restart methods",
+          "completed": false
+        }
+      ],
+      "createdAt": 1793872800004,
+      "order": 5000
+    },
+    {
+      "id": "t06-console-test",
+      "text": "T6 · Console playtest",
+      "description": "Play full games from the DevTools console and confirm every scenario.",
+      "tags": [
+        "phase-1-console"
+      ],
+      "priority": "Must",
+      "status": "Todo",
+      "completed": false,
+      "subtasks": [
+        {
+          "id": "t06-s1",
+          "text": "X wins on a row",
+          "completed": false
+        },
+        {
+          "id": "t06-s2",
+          "text": "O wins on a column",
+          "completed": false
+        },
+        {
+          "id": "t06-s3",
+          "text": "Diagonal win",
+          "completed": false
+        },
+        {
+          "id": "t06-s4",
+          "text": "Tie game",
+          "completed": false
+        },
+        {
+          "id": "t06-s5",
+          "text": "Taken cell and move after game over are rejected",
+          "completed": false
+        }
+      ],
+      "createdAt": 1793872800005,
+      "order": 6000
+    },
+    {
+      "id": "t07-render",
+      "text": "T7 · DisplayController: render board",
+      "description": "IIFE that caches DOM elements and renders 9 cells from Gameboard.getBoard() with data-index. Test first with a prefilled X/O board.",
+      "tags": [
+        "phase-2-dom"
+      ],
+      "priority": "Must",
+      "status": "Todo",
+      "completed": false,
+      "subtasks": [
+        {
+          "id": "t07-s1",
+          "text": "DisplayController IIFE with cached elements",
+          "completed": false
+        },
+        {
+          "id": "t07-s2",
+          "text": "renderBoard builds 9 cells with data-index",
+          "completed": false
+        },
+        {
+          "id": "t07-s3",
+          "text": "Verify with a prefilled X/O board, then remove the test data",
+          "completed": false
+        }
+      ],
+      "createdAt": 1793872800006,
+      "order": 7000
+    },
+    {
+      "id": "t08-clicks",
+      "text": "T8 · Click to place marks",
+      "description": "One delegated click listener on the board calls GameController.playRound(index) and re-renders.",
+      "tags": [
+        "phase-2-dom"
+      ],
+      "priority": "Must",
+      "status": "Todo",
+      "completed": false,
+      "subtasks": [
+        {
+          "id": "t08-s1",
+          "text": "Delegated click listener on the board container",
+          "completed": false
+        },
+        {
+          "id": "t08-s2",
+          "text": "Call playRound and re-render",
+          "completed": false
+        },
+        {
+          "id": "t08-s3",
+          "text": "Taken cells and finished game ignore clicks",
+          "completed": false
+        }
+      ],
+      "createdAt": 1793872800007,
+      "order": 8000
+    },
+    {
+      "id": "t09-status",
+      "text": "T9 · Status + result display",
+      "description": "Status line shows whose turn it is, then the winner name or Tie when the round ends.",
+      "tags": [
+        "phase-2-dom"
+      ],
+      "priority": "Must",
+      "status": "Todo",
+      "completed": false,
+      "subtasks": [
+        {
+          "id": "t09-s1",
+          "text": "Show current player turn",
+          "completed": false
+        },
+        {
+          "id": "t09-s2",
+          "text": "Show winner name on win",
+          "completed": false
+        },
+        {
+          "id": "t09-s3",
+          "text": "Show Tie on tie",
+          "completed": false
+        }
+      ],
+      "createdAt": 1793872800008,
+      "order": 9000
+    },
+    {
+      "id": "t10-controls",
+      "text": "T10 · Names, Start/Restart, Next Round",
+      "description": "Name form for both players, Start/Restart button (resets scores) and Next Round button (keeps scores).",
+      "tags": [
+        "phase-3-ui"
+      ],
+      "priority": "Must",
+      "status": "Todo",
+      "completed": false,
+      "subtasks": [
+        {
+          "id": "t10-s1",
+          "text": "Name inputs for X and O with defaults if empty",
+          "completed": false
+        },
+        {
+          "id": "t10-s2",
+          "text": "Start sets names and begins the game",
+          "completed": false
+        },
+        {
+          "id": "t10-s3",
+          "text": "Restart resets board, scores and shows the name form",
+          "completed": false
+        },
+        {
+          "id": "t10-s4",
+          "text": "Next Round clears the board and keeps scores",
+          "completed": false
+        }
+      ],
+      "createdAt": 1793872800009,
+      "order": 10000
+    },
+    {
+      "id": "t11-scoreboard",
+      "text": "T11 · Running scoreboard",
+      "description": "Scoreboard row like the mockup: NAME (X) | TIE | NAME (O) with counts. Updates after every round, resets on Restart.",
+      "tags": [
+        "phase-3-ui"
+      ],
+      "priority": "Must",
+      "status": "Todo",
+      "completed": false,
+      "subtasks": [
+        {
+          "id": "t11-s1",
+          "text": "Scoreboard markup with three columns",
+          "completed": false
+        },
+        {
+          "id": "t11-s2",
+          "text": "renderScoreboard from GameController.getScores()",
+          "completed": false
+        },
+        {
+          "id": "t11-s3",
+          "text": "Updates after each win/tie, resets on Restart",
+          "completed": false
+        }
+      ],
+      "createdAt": 1793872800010,
+      "order": 11000
+    },
+    {
+      "id": "t12-polish",
+      "text": "T12 · Match the mockup + README",
+      "description": "Black background, white inner-only grid lines, Raleway uppercase labels, big score digits, hover on empty cells, works on mobile width. Update README.",
+      "tags": [
+        "phase-4-polish"
+      ],
+      "priority": "Should",
+      "status": "Todo",
+      "completed": false,
+      "subtasks": [
+        {
+          "id": "t12-s1",
+          "text": "Black background, inner grid lines only",
+          "completed": false
+        },
+        {
+          "id": "t12-s2",
+          "text": "Raleway font, uppercase labels, large score digits",
+          "completed": false
+        },
+        {
+          "id": "t12-s3",
+          "text": "Hover effect on empty cells during a round",
+          "completed": false
+        },
+        {
+          "id": "t12-s4",
+          "text": "Responsive at phone width",
+          "completed": false
+        },
+        {
+          "id": "t12-s5",
+          "text": "Update README with description and how to play",
+          "completed": false
+        }
+      ],
+      "createdAt": 1793872800011,
+      "order": 12000
+    }
+  ]
+}
