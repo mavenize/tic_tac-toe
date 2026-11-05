@@ -373,26 +373,30 @@
       "text": "T11 · Running scoreboard",
       "description": "Scoreboard row like the mockup: NAME (X) | TIE | NAME (O) with counts. Updates after every round, resets on Restart.",
       "tags": [
-        "phase-3-ui"
+        "phase-3-ui",
+        "index.html:37-51",
+        "style.css:68-77",
+        "script.js:204-208",
+        "script.js:239-256"
       ],
       "priority": "Must",
-      "status": "Todo",
-      "completed": false,
+      "status": "Done",
+      "completed": true,
       "subtasks": [
         {
           "id": "t11-s1",
           "text": "Scoreboard markup with three columns",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t11-s2",
           "text": "renderScoreboard from GameController.getScores()",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t11-s3",
           "text": "Updates after each win/tie, resets on Restart",
-          "completed": false
+          "completed": true
         }
       ],
       "createdAt": 1793872800010,

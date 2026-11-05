@@ -35,7 +35,20 @@
         <p class="status" id="status"></p>
 
         <!-- Running scoreboard: NAME (X) | TIE | NAME (O) (T11) -->
-        <section class="scoreboard" id="scoreboard"></section>
+        <section class="scoreboard" id="scoreboard">
+          <div class="score">
+            <p class="score-label" id="score-label-x">Player X (X)</p>
+            <p class="score-count" id="score-x">0</p>
+          </div>
+          <div class="score">
+            <p class="score-label">Tie</p>
+            <p class="score-count" id="score-ties">0</p>
+          </div>
+          <div class="score">
+            <p class="score-label" id="score-label-o">Player O (O)</p>
+            <p class="score-count" id="score-o">0</p>
+          </div>
+        </section>
 
         <!-- Next Round / Restart buttons (T10) -->
         <div class="controls" id="controls">

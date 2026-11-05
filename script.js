@@ -201,6 +201,11 @@ const DisplayController = (function () {
   const playEl = document.querySelector("#play");
   const boardEl = document.querySelector("#board");
   const statusEl = document.querySelector("#status");
+  const scoreLabelXEl = document.querySelector("#score-label-x");
+  const scoreLabelOEl = document.querySelector("#score-label-o");
+  const scoreXEl = document.querySelector("#score-x");
+  const scoreTiesEl = document.querySelector("#score-ties");
+  const scoreOEl = document.querySelector("#score-o");
   const nextRoundBtn = document.querySelector("#next-round");
   const restartBtn = document.querySelector("#restart");
 
@@ -231,10 +236,23 @@ const DisplayController = (function () {
     }
   }
 
+  // Show both names with their marks, and the X wins / ties / O wins counts.
+  function renderScoreboard() {
+    const [playerX, playerO] = GameController.getPlayers();
+    const scores = GameController.getScores();
+
+    scoreLabelXEl.textContent = `${playerX.getName()} (X)`;
+    scoreLabelOEl.textContent = `${playerO.getName()} (O)`;
+    scoreXEl.textContent = scores.x;
+    scoreTiesEl.textContent = scores.ties;
+    scoreOEl.textContent = scores.o;
+  }
+
   // Redraw everything that changes during a game.
   function render(result) {
     renderBoard();
     renderStatus(result);
+    renderScoreboard();
     // Next Round only makes sense once the round has ended.
     nextRoundBtn.disabled = !GameController.isGameOver();
   }
@@ -281,7 +299,7 @@ const DisplayController = (function () {
   nextRoundBtn.addEventListener("click", handleNextRound);
   restartBtn.addEventListener("click", handleRestart);
 
-  return { renderBoard, renderStatus };
+  return { renderBoard, renderStatus, renderScoreboard };
 })();
 
 console.log("Tic Tac Toe loaded");

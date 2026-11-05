@@ -64,3 +64,14 @@ body {
   display: flex;
   gap: 1rem;
 }
+
+/* Scoreboard: three columns, label above count (T11). Mockup styling comes in T12. */
+.scoreboard {
+  display: flex;
+  gap: 2rem;
+  text-align: center;
+}
+
+.score-count {
+  font-size: 2rem;
+}
