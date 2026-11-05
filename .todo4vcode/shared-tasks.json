@@ -236,7 +236,7 @@
       "description": "IIFE that caches DOM elements and renders 9 cells from Gameboard.getBoard() with data-index. Test first with a prefilled X/O board.",
       "tags": [
         "phase-2-dom",
-        "script.js:187-205",
+        "script.js:194-206",
         "style.css:26-40"
       ],
       "priority": "Must",
@@ -268,7 +268,7 @@
       "description": "One delegated click listener on the board calls GameController.playRound(index) and re-renders.",
       "tags": [
         "phase-2-dom",
-        "script.js:207-220"
+        "script.js:221-235"
       ],
       "priority": "Must",
       "status": "Done",
@@ -298,26 +298,27 @@
       "text": "T9 · Status + result display",
       "description": "Status line shows whose turn it is, then the winner name or Tie when the round ends.",
       "tags": [
-        "phase-2-dom"
+        "phase-2-dom",
+        "script.js:208-219"
       ],
       "priority": "Must",
-      "status": "Todo",
-      "completed": false,
+      "status": "Done",
+      "completed": true,
       "subtasks": [
         {
           "id": "t09-s1",
           "text": "Show current player turn",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t09-s2",
           "text": "Show winner name on win",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t09-s3",
           "text": "Show Tie on tie",
-          "completed": false
+          "completed": true
         }
       ],
       "createdAt": 1793872800008,

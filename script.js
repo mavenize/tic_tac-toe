@@ -189,6 +189,7 @@ const GameController = (function () {
 const DisplayController = (function () {
   // Cache DOM elements once.
   const boardEl = document.querySelector("#board");
+  const statusEl = document.querySelector("#status");
 
   // Build 9 cell buttons from the current board.
   function renderBoard() {
@@ -204,6 +205,19 @@ const DisplayController = (function () {
     });
   }
 
+  // Show whose turn it is, or the result once the round has ended.
+  // result is what GameController.playRound returned.
+  function renderStatus(result) {
+    if (result.status === "win") {
+      statusEl.textContent = `${result.winner.getName()} wins!`;
+    } else if (result.status === "tie") {
+      statusEl.textContent = "It's a tie!";
+    } else {
+      const player = GameController.getActivePlayer();
+      statusEl.textContent = `${player.getName()}'s turn (${player.getMark()})`;
+    }
+  }
+
   // One listener on the board handles clicks on every cell (event delegation).
   function handleBoardClick(event) {
     if (!event.target.classList.contains("cell")) return;
@@ -215,13 +229,16 @@ const DisplayController = (function () {
     if (result.status === "invalid") return;
 
     renderBoard();
+    renderStatus(result);
   }
 
   boardEl.addEventListener("click", handleBoardClick);
 
-  renderBoard(); // draw the empty board on page load
+  // Draw the empty board and first turn on page load.
+  renderBoard();
+  renderStatus({ status: "continue" });
 
-  return { renderBoard };
+  return { renderBoard, renderStatus };
 })();
 
 console.log("Tic Tac Toe loaded");
